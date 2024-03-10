@@ -1,0 +1,27 @@
+{
+  "name": "hideandseek",
+  "version": "1.0.0",
+  "description": "2.5D Exploration",
+  "main": "./src/app.ts",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --port 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "videogame"
+  ],
+  "author": "Joe Washek",
+  "license": "ISC",
+  "devDependencies": {
+    "@babylonjs/core": "^6.42.0",
+    "@babylonjs/gui": "^6.42.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "html-webpack-plugin": "^5.6.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.1"
+  }
+}
