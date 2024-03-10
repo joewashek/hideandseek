@@ -40,6 +40,7 @@ module.exports = {
             patterns: [
                 { from: 'public/assets',to:'assets' },
                 { from: 'public/fonts',to:'fonts' },
+                { from: 'public/style.css',to:'style.css' },
             ]
         })
     ],
