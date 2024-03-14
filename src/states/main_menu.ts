@@ -39,8 +39,8 @@ async function makeBackground(canvas:HTMLCanvasElement, sceneToLoad: Scene): Pro
     spriteRandomGenerator(sceneToLoad, "rabbit", 'assets/sprites/animals/rabbit_watching.png',600, 600, 5, min, max, -0.6, 1, 1, true, 11);
 
     const spritePackManager: SpritePackedManager = new SpritePackedManager("envSpritePack","assets/sprites/environment/envSpritePack.png",100, sceneToLoad);
-    spritePackRandomGenerator(spritePackManager, "treesTriangle", "tree_triangle.png",20, min, max, -1.8, 7.76 / 2, 2.52 / 2);
-    spritePackRandomGenerator(spritePackManager, "treesRound", "tree_round.png",20, min, max, -2, 8.93 / 2, 5.52 / 2);
+    //spritePackRandomGenerator(spritePackManager, "treesTriangle", "tree_triangle.png",20, min, max, -1.8, 7.76 / 2, 2.52 / 2);
+    //spritePackRandomGenerator(spritePackManager, "treesRound", "tree_round.png",20, min, max, -2, 8.93 / 2, 5.52 / 2);
     spritePackRandomGenerator(spritePackManager, "treesDead", "tree_dead.png",5, min, max, -1.2, 5.77 / 2, 3.69 / 2);
 
     spritePackRandomGenerator(spritePackManager, "bush1", "bush_1.png",20, min, max, -0.1, 2.28 / 4, 2.48 / 4);
@@ -61,7 +61,7 @@ async function makeBackground(canvas:HTMLCanvasElement, sceneToLoad: Scene): Pro
     playerMesh.position.z = -0.4;
     playerMesh.rotation.x = -45;
     playerMesh.setParent(parentMesh);
-    playerMesh.material = await animatedStandardMaterial(sceneToLoad, "assets/sprites/character/character1_moving_left.png","charMat",8,1,120);
+    playerMesh.material = await animatedStandardMaterial(sceneToLoad, "assets/sprites/character/spearman1_moving_left.png","charMat",10,1,120);
 
     const animPlayer: Animation = new Animation("playerAnimation","rotationQuaternion", 60, Animation.ANIMATIONTYPE_QUATERNION,Animation.ANIMATIONLOOPMODE_CYCLE);
     const initialRotationQuaternion = new Vector3(-45,0 ,0).toQuaternion();
@@ -103,11 +103,11 @@ async function makeBackground(canvas:HTMLCanvasElement, sceneToLoad: Scene): Pro
 async function makeGui(sceneToLoad: Scene): Promise<void> {
     const guiMenu = AdvancedDynamicTexture.CreateFullscreenUI("ui", true, sceneToLoad);
     
-    const titleImg = new Image("logoTitle","assets/textures/UI/logo.svg");
-    titleImg.height = 0.3;
+    const titleImg = new Image("logoTitle","assets/textures/UI/rabbit_hunter_logo.png");
+    titleImg.height = 0.75;
     titleImg.stretch = Image.STRETCH_UNIFORM;
     titleImg.verticalAlignment = Control.VERTICAL_ALIGNMENT_TOP;
-    titleImg.top = (window.innerHeight / 10);
+    titleImg.top = -125;
     guiMenu.addControl(titleImg);
 
     const fontSizePercentage = 0.06;

@@ -69,7 +69,11 @@ async function makeGui(sceneToLoad: Scene): Promise<void> {
 
     
     for (let i = 1; i < 3; i++) {
-        const playerImage = await image(`imagePlayer${i}`,`assets/textures/UI/player${i}.svg`,1,1,0,0,Control.HORIZONTAL_ALIGNMENT_CENTER,Control.VERTICAL_ALIGNMENT_CENTER);
+        //const playerImage = await image(`imagePlayer${i}`,`assets/textures/UI/player${i}.svg`,1,1,0,0,Control.HORIZONTAL_ALIGNMENT_CENTER,Control.VERTICAL_ALIGNMENT_CENTER)
+        const playerImage = await image(`imagePlayer${i}`,`assets/sprites/character/spearman${i}_watching.png`,1,1,0,0,Control.HORIZONTAL_ALIGNMENT_CENTER,Control.VERTICAL_ALIGNMENT_CENTER);
+        playerImage.cellId  = 0;
+        playerImage.cellHeight = 185;
+        playerImage.cellWidth = 185;
         playerImage.stretch = Image.STRETCH_UNIFORM;
         grid.addControl(playerImage,0,i-1);
 

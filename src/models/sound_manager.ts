@@ -42,16 +42,18 @@ export class SoundManager{
             this._ambientSoundtrack.addSound(this._startAmbient);
         }
 
-        let taskMainMenu = this._assetManager.addBinaryFileTask("mainMenuMusic", "assets/sounds/musics/041415calmbgm.wav");
+        let taskMainMenu = this._assetManager.addBinaryFileTask("mainMenuMusic", "assets/sounds/musics/TownTheme.mp3");
         taskMainMenu.onSuccess = (task) => {
             this._mainMenuMusic = new Sound("mainMenuMusic", task.data, null, null, { autoplay: false, loop: true});
             this._musicSoundtrack.addSound(this._mainMenuMusic);
         }
 
-        let taskGame = this._assetManager.addBinaryFileTask("startAmbient", "assets/sounds/musics/spring-day.mp3");
+        let taskGame = this._assetManager.addBinaryFileTask("gameMusic", "assets/sounds/musics/battleThemeA.mp3");
         taskGame.onSuccess = (task) => {
-            this._gameMusic = new Sound("gameMusic", task.data, null, null, { autoplay: false, loop: true});
+            this._gameMusic = new Sound("gameMusic", task.data, null, null, { autoplay: false, loop: true,volume:0.5});
+
             this._musicSoundtrack.addSound(this._gameMusic);
+            this._musicSoundtrack.setVolume(0.5)
         }
 
         let taskConfirmSound = this._assetManager.addBinaryFileTask("confirmSound", "assets/sounds/sfx/Menu Soundpack 3.wav");
@@ -79,8 +81,9 @@ export class SoundManager{
             this._sfxSoundtrack.addSound(this._unpauseSound);
         }
 
-        let taskCollectSound = this._assetManager.addBinaryFileTask("collectSound", "assets/sounds/sfx/coin.wav");
+        let taskCollectSound = this._assetManager.addBinaryFileTask("collectSound", "assets/sounds/sfx/sword.1.ogg");
         taskCollectSound.onSuccess = (task) => {
+            console.log('collect sound')
             this._collectSound = new Sound("collectSound", task.data, null, null, { autoplay: false, loop: false});
             this._sfxSoundtrack.addSound(this._collectSound);
         }
@@ -175,7 +178,8 @@ export class SoundManager{
 
     public setMusicVolume(volume:number):void{
         this._musicSoundtrackVol = volume / 100;
-        this._musicSoundtrack.setVolume(this._musicSoundtrackVol);
+        //this._musicSoundtrack.setVolume(this._musicSoundtrackVol);
+        this._musicSoundtrack.setVolume(this._musicSoundtrackVol/2);
     }
 
     public setSfxVolume(volume:number):void{

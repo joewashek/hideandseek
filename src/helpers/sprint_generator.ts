@@ -77,7 +77,15 @@ export async function spriteMapGenerator(scene:Scene, textureUrl: string, titleM
     await assetsManager.loadAsync();
 }
 
-export async function animatedStandardMaterial(scene:Scene, textureUrl: string, standardMaterialName: string, columnsNumber: number, linesNumber: number, timeInterval:number):Promise<StandardMaterial> {
+export async function animatedStandardMaterial(
+    scene:Scene, 
+    textureUrl: string, 
+    standardMaterialName: string, 
+    columnsNumber: number, 
+    linesNumber: number, 
+    timeInterval:number,
+    staticPosition: number = -1):Promise<StandardMaterial> {
+
     const texture = new Texture(textureUrl, scene);
     texture.hasAlpha = true;
     texture.uScale = 1 / columnsNumber;
@@ -85,22 +93,27 @@ export async function animatedStandardMaterial(scene:Scene, textureUrl: string, 
     texture.uOffset = 0;
     texture.vOffset = 1 / linesNumber;
 
-    setInterval(() => {
-        if(texture.uOffset >= (1-(1/columnsNumber))){
-            texture.uOffset = 0;
-
-            switch(texture.vOffset){
-                case 0:
-                    texture.vOffset = 1 / linesNumber;
-                    break;
-                case 1:
-                    texture.vOffset = 0;
-                    break;
+    if(staticPosition == -1){
+        setInterval(() => {
+            if(texture.uOffset >= (1-(1/columnsNumber))){
+                texture.uOffset = 0;
+    
+                switch(texture.vOffset){
+                    case 0:
+                        texture.vOffset = 1 / linesNumber;
+                        break;
+                    case 1:
+                        texture.vOffset = 0;
+                        break;
+                }
+            }else{
+                texture.uOffset += 1 / columnsNumber;
             }
-        }else{
-            texture.uOffset += 1 / columnsNumber;
-        }
-    },timeInterval);
+        },timeInterval);
+    }else{
+
+    }
+   
 
     let animatedMaterial = new StandardMaterial(standardMaterialName, scene);
     animatedMaterial.diffuseTexture = texture;

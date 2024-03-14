@@ -4,7 +4,7 @@ export async function simpleButton(name: string, text: string, fontSizePercentag
     const button = Button.CreateSimpleButton(name, text);
 
     button.color = "white";
-    button.fontFamily = "bongkar";
+    button.fontFamily = "MedievalSharp";
     button.height = height;
     button.fontSizeInPixels = ((window.innerHeight + window.innerWidth) / 2) * fontSizePercentage;
     button.thickness = 0;
@@ -49,7 +49,7 @@ export async function imageButton(name: string, text: string, spriteUrl: string,
 
     button.color = "white";
     button.background = "#9DC985";
-    button.fontFamily = "bongkar";
+    button.fontFamily = "MedievalSharp";
     button.height = height;
     button.fontSizeInPixels = ((window.innerHeight + window.innerWidth) / 2) * fontSizePercentage;
     button.thickness = 0;
@@ -69,7 +69,7 @@ export async function imageButton(name: string, text: string, spriteUrl: string,
 export async function simpleTextBlock(name:string, text: string, color: string, fontSize: number, height: number, top:number,verticalAlign: number):Promise<TextBlock> {
     const textBlock = new TextBlock(name, text);
     textBlock.color = color;
-    textBlock.fontFamily = 'bongkar';
+    textBlock.fontFamily = "MedievalSharp";
     textBlock.fontSizeInPixels = ((window.innerHeight + window.innerWidth) / 2 ) * fontSize;
     textBlock.height = height;
     textBlock.top = top;
@@ -81,7 +81,7 @@ export async function simpleTextBlock(name:string, text: string, color: string, 
 export async function simpleSlider(sliderName: string, sliderText: string, defaultVol: number, grid: Grid,row: number,fontSize: number):Promise<ImageBasedSlider> {
     const header = new TextBlock(sliderName,sliderText);
     header.color = 'white';
-    header.fontFamily = "bongkar";
+    header.fontFamily = "MedievalSharp";
     header.fontSizeInPixels = ((window.innerHeight + window.innerWidth) / 2 ) * fontSize * 0.4;
     header.textWrapping = true;
     grid.addControl(header,row,0);

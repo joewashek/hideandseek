@@ -26,12 +26,8 @@ export class Environment{
             )
 
         const material1 = new StandardMaterial("treeRound", this._scene);
-        const texture1 = new Texture("assets/textures/environment/tree_round.png",this._scene);
-        await spriteMeshGenerator(this._scene,texture1,material1,"treeRound",-16,16,-2.5,7,8,10);
-
-        const material2 = new StandardMaterial("treeTriangle", this._scene);
-        const texture2 = new Texture("assets/textures/environment/tree_triangle.png",this._scene);
-        await spriteMeshGenerator(this._scene,texture2,material2,"treeRound",-16,16,-1.5,2,4,10);
+        const texture1 = new Texture("assets/textures/environment/tree_cartoon_med.png",this._scene);
+        await spriteMeshGenerator(this._scene,texture1,material1,"treeRound",-16,16,-2.5,2,3,20);
 
         const material3 = new StandardMaterial("grass", this._scene);
         const texture3 = new Texture("assets/textures/environment/grass.png",this._scene);

@@ -66,7 +66,9 @@ export class CharacterController {
 
     private async setupCharacterAnimations(){
         for(const key in this._characterAnimations){
-            this._characterAnimations[key] = await animatedStandardMaterial(this._scene, `assets/sprites/character/character${this._playerId}_${key}.png`,"characterMat"+key,8,1,160);
+            const colCount = key == 'watching' ? 8 : 10;
+            const staticPos = key == 'watching' ? 1 : -1;
+            this._characterAnimations[key] = await animatedStandardMaterial(this._scene, `assets/sprites/character/spearman${this._playerId}_${key}.png`,"characterMat"+key,colCount,1,160,staticPos);
         }
     }
 
